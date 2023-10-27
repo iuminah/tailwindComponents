@@ -1,6 +1,13 @@
+'use client'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useCallback } from 'react'
 
 export default function Home() {
+  const handleClick = useCallback(() => {
+    console.log("aaa")
+  },[])
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -107,6 +114,17 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
+        <div className='mt-4'>
+          <Link 
+          className='border-2 rounded-xl py-4 px-16 hover:bg-yellow-300 hover:border-green-300 transiton-all duration-300'
+          onClick={handleClick}
+          href={"#"}>
+            Next Page
+          <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+          -&gt;
+        </span>
+        </Link>
+        </div>
       </div>
     </main>
   )
